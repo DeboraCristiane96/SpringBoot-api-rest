@@ -8,12 +8,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import br.edu.ifpb.dac.projetomvc.controller.CarController;
-import br.edu.ifpb.dac.projetomvc.controller.PersonController;
-import br.edu.ifpb.dac.projetomvc.model.entity.Car;
-import br.edu.ifpb.dac.projetomvc.model.entity.Person;
 @SpringBootApplication
-public class ProjetoMvcApplication implements CommandLineRunner{
+public class ProjetoMvcApplication implements WebMvcConfigurer{
 
 	@Autowired
 	PersonController personController;
@@ -25,36 +21,9 @@ public class ProjetoMvcApplication implements CommandLineRunner{
 		SpringApplication.run(ProjetoMvcApplication.class, args);
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
-		Scanner s = new Scanner (System.in);
-		boolean goout = false;
-		while (! goout) {
-			System.out.println("(1) create list of people who own cars");
-			System.out.println("(2) list of people who own cars");
-			System.out.println("(3) go out");
-			int op = s.nextInt();
-			if(op == 1) {
-				Person person = new Person();
-				Car car = new Car();
-				car.setBoard(s.nextLine());
-				car.setBrand(s.nextLine());
-				car.setYear(s.nextInt());
-				car.setColor(s.nextLine());
-				carController.create(car);
-				person.setName(person.getName());
-				person.setAge(person.getAge());
-				person.setSex(person.getSex());
-				personController.create(person);
-
-			} else if (op == 2) {
-				List<Person> people = personController.list();
-				for(Person p: people) {
-					System.out.println(p);
-				}
-			} else {
-				goout = true;
-			}
-		 }
+	public void addCorMappings(DorsRegistry registry){
+		registy
+			.addMapping("/**")
+			.allowedMethods("GET","POST","DELETE","OPTIONS","PATCH");
 	}
 }
