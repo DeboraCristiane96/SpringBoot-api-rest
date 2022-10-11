@@ -13,17 +13,17 @@ import java.util.UUID;
 @Service
 public class CarService {
 
-	final CarRepository caRepository;
+	final CarRepository carRepository;
 
-	public CarService(CarRepository caRepository) { this.caRepository = caRepository; }
+	public CarService(CarRepository carRepository) { this.carRepository = carRepository; }
 
-	public Object saveCar(Car car) { return caRepository.save(car); }
+	public Object saveCar(Car car) { return carRepository.save(car); }
 
-	public boolean existsByLincencePlateCar(String licencePlate) { return caRepository.existsByLicencePlateCar(licencePlate); }
+	public boolean existsByLincensePlateCar(String licensePlate) { return carRepository.existsByLicensePlateCar(licensePlate); }
 
-	public List<Car> findAll() { return caRepository.findAll(); }
+	public List<Car> findAll() { return carRepository.findAll(); }
 
-	public Optional<Car> findById(UUID id) { return caRepository.findById(id); }
+	public Optional<Car> findById(UUID id) { return carRepository.findById(id); }
 
-	public void deleteCar(Car car) { caRepository.delete(car); }
+	public void deleteCar(Car car) { carRepository.delete(car); }
 }
