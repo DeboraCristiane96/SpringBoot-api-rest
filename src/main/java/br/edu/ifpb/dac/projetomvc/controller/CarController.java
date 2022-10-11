@@ -61,7 +61,6 @@ public class CarController {
 		car.setModel(cardto.getModel());
 		car.setColor(cardto.getColor());
 		car.setYear(cardto.getYear());
-		car.setPerson(cardto.getPerson());
 		return ResponseEntity.status(HttpStatus.OK).body(carService.saveCar(car)); }
 
 }
