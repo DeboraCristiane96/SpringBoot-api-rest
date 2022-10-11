@@ -17,7 +17,7 @@ public class ProjetoMvcApplication implements WebMvcConfigurer{
 	}
 
 	public void addCorMappings(corsRegistry registry){
-		registy
+		registry
 			.addMapping("/**")
 			.allowedMethods("GET","POST","DELETE","OPTIONS","PATCH");
 	}
