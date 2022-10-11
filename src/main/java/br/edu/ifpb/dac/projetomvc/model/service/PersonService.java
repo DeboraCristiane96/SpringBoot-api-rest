@@ -16,7 +16,7 @@ public class PersonService {
 
 	public PersonService(PersonRepository personRepository) { this.personRepository = personRepository; }
 
-	public boolean existsBycpf(String cpf){ return personRepository.existsBycpf(cpf); }
+	public boolean existsBycName(String name){ return personRepository.existsByName(name); }
 
 	public Object savePerson(Person person) { return personRepository.save(person); }
 
