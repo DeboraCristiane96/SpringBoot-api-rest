@@ -61,11 +61,8 @@ public class PersonController {
 		if(!personOptional.isPresent()){
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Person not found."); }
 		var person = personOptional.get();
-		person.setCpf(persondto.getCpf());
 		person.setName(persondto.getName());
 		person.setAge(persondto.getAge());
-		person.setSex(persondto.getSex());
-		person.setCars(persondto.getCars());
 		return ResponseEntity.status(HttpStatus.OK).body(personService.savePerson(person)); }
 }
 
