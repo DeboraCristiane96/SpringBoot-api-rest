@@ -27,8 +27,8 @@ public class PersonController {
 	@Transactional
 	@PostMapping
 	public ResponseEntity <Object> savePerson(@RequestBody PersonDTO persondto) {
-		if (personService.existsBycpf(persondto.getCpf())) {
-			return ResponseEntity.status(HttpStatus.CREATED).body("Conflict: This CPF has already been registered");
+		if (personService.existsByName(persondto.getName())) {
+			return ResponseEntity.status(HttpStatus.CREATED).body("Conflict: This name has already been registered");
 		}
 		var person = new Person();
 		BeanUtils.copyProperties(persondto, person);
