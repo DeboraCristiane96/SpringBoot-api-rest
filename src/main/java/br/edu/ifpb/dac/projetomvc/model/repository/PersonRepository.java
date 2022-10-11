@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import br.edu.ifpb.dac.projetomvc.model.entity.Person;
 
 @Repository
-public interface PersonRepository extends JpaRepository <Person, Integer> {
+public interface PersonRepository extends JpaRepository <Person, UUID> {
 
 	boolean existsByName(String name);
 
