@@ -15,7 +15,7 @@ import br.edu.ifpb.dac.projetomvc.model.entity.Person;
 @Repository
 public interface PersonRepository extends JpaRepository <Person, Integer> {
 
-	boolean existsBycpf(String cpf);
+	boolean existsByName(String name);
 
 	Optional<Person> findById(UUID id);
 }
