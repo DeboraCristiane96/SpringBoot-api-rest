@@ -11,17 +11,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ProjetoMvcApplication implements WebMvcConfigurer{
 
-	@Autowired
-	PersonController personController;
 	
-	@Autowired
-	CarController carController;
-
 	public static void main(String[] args) {
 		SpringApplication.run(ProjetoMvcApplication.class, args);
 	}
 
-	public void addCorMappings(DorsRegistry registry){
+	public void addCorMappings(corsRegistry registry){
 		registy
 			.addMapping("/**")
 			.allowedMethods("GET","POST","DELETE","OPTIONS","PATCH");
