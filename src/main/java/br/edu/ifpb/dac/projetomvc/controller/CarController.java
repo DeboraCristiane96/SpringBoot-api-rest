@@ -25,7 +25,7 @@ public class CarController {
 
 	@PostMapping
 	public ResponseEntity <Object> seveCar(@RequestBody CarDTO cardto){
-		if(carService.existsByLincencePlateCar(cardto.getLicensePlateCar())){
+		if(carService.existsByLincensePlateCar(cardto.getLicensePlateCar())){
 			return ResponseEntity.status(HttpStatus.CREATED).body("Conflict: This license plate has already been registered");}
 		var car  = new Car();
 		BeanUtils.copyProperties(cardto,car);
